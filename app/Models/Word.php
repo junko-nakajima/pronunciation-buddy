@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Word extends Model
 {
     use HasFactory;
+
+    public function deck()
+    {
+        return $this->belongsTo(Deck::class);
+    }
+
+    public function attempts()
+    {
+        return $this->hasMany(Attempt::class);
+    }
+
 }
