@@ -3,6 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeckController;
+use App\Http\Controllers\StudyhistoryController;
+use App\Http\Controllers\WordController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AttemptController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +35,15 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/decks', [DeckController::class, 'index']);
+
+Route::get('/studyhistories', [StudyhistoryController::class, 'index']);
+
+Route::get('/words', [WordController::class, 'index']);
+
+Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('/attempts', [AttemptController::class, 'index']);
+
+Route::get('/feedbacks', [FeedbackController::class, 'index']);
 
 require __DIR__.'/auth.php';
