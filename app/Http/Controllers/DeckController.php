@@ -9,7 +9,7 @@ class DeckController extends Controller
 {
     public function index(Deck $deck)
     {
-        return $deck->get();
+        return view('decks.index')->with(['decks' =>$deck->get()]);
     }
 
     //

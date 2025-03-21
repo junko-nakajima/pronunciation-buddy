@@ -9,7 +9,7 @@ class AttemptController extends Controller
 {
     public function index(Attempt $attempt)
     {
-        return $attempt->get();
+        return view('attempt.index')->with(['attempts' => $attempt->get()]);
     }
     //
 }

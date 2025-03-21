@@ -9,7 +9,7 @@ class StudyhistoryController extends Controller
 {
     public function index(Studyhistory $studyhistory)
     {
-        return $studyhistory->get();
+        return view('studyhistories.index')->with(['studyhistories' =>$studyhistory->get()]);
     }
     //
 }

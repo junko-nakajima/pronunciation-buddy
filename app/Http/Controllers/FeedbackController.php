@@ -9,7 +9,7 @@ class FeedbackController extends Controller
 {
     public function index(Feedback $feedback)
     {
-        return $feedback->get();
+        return view('feedbacks.index')->with(['feedbacks' => $feedback->get()]);
     }
     //
 }

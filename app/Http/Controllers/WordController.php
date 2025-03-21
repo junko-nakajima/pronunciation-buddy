@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class WordController extends Controller
 {
-    public function index(Word $word)
+    public function lists(Word $word)
     {
-        return $word->get();
+        return view('words.lists')->with(['words' => $word->get()]);
     }
     //
 }

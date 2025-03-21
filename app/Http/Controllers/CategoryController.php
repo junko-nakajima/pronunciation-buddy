@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index(Category $category)
     {
-        return $category->get();
+        return view('categories.index')->with(['categories' => $category->get()]);
     }
     //
 }
