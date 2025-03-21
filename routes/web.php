@@ -34,16 +34,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/decks', [DeckController::class, 'index']);
+Route::get('/', [DeckController::class, 'index']);
 
-Route::get('/studyhistories', [StudyhistoryController::class, 'index']);
+Route::get('/', [StudyhistoryController::class, 'lists']);
 
-Route::get('/words', [WordController::class, 'index']);
+Route::get('/', [WordController::class, 'lists']);
 
-Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/', [CategoryController::class, 'index']);
 
-Route::get('/attempts', [AttemptController::class, 'index']);
+Route::get('/', [AttemptController::class, 'index']);
 
-Route::get('/feedbacks', [FeedbackController::class, 'index']);
+Route::get('/', [FeedbackController::class, 'index']);
 
 require __DIR__.'/auth.php';
