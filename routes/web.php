@@ -37,20 +37,28 @@ Route::middleware('auth')->group(function () {
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/deck', [DeckController::class, 'index'])->name('index');
-    Route::get('/decks/create', [DeckController::class, 'create']);
-    Route::get('/decks/{deck}', [DeckController::class, 'show']);
+    Route::get('/decks/create', [DeckController::class, 'create'])->name('create');
+    Route::get('/decks/{deck}', [DeckController::class, 'show'])->name('show');
     Route::post('/decks', [DeckController::class, 'store']);
-    Route::delete('/decks/{deck}', [DeckController::class,'delete']);
+    Route::put('/decks/{deck}', [DeckController::class, 'update'])->name('update');
+    Route::delete('/decks/{deck}', [DeckController::class,'delete'])->name('delete');
+    Route::get('/decks/{deck}/edit', [DeckController::class,'edit'])->name('edit');
 
-    Route::get('/studyhistory', [StudyhistoryController::class, 'index']);
+    Route::get('/studyhistory', [StudyhistoryController::class, 'index'])->name('index');
 
-    Route::get('/word', [WordController::class, 'index']);
+    Route::get('/word', [WordController::class, 'index'])->name('index');
+    Route::get('/words/create', [WordController::class, 'create'])->name('create');
+    Route::get('/words/{word}', [WordController::class ,'show'])->name('show');
+    Route::post('/words', [WordController::class, 'store']);
+    Route::put('/words/{word}', [WordController::class, 'update'])->name('update');
+    Route::delete('/words/{word}', [WordController::class,'delete'])->name('delete');
+    Route::get('/words/{word}/edit', [WordController::class,'edit'])->name('edit');
 
-    Route::get('/category', [CategoryController::class, 'index']);
+    Route::get('/category', [CategoryController::class, 'index'])->name('index');
+   
+    Route::get('/attempt', [AttemptController::class, 'index'])->name('index');
 
-    Route::get('/attempt', [AttemptController::class, 'index']);
-
-    Route::get('/feedback', [FeedbackController::class, 'index']);
+    Route::get('/feedback', [FeedbackController::class, 'index'])->name('index');
 
     Route::get('/audio', [AudioController::class, 'index']); 
     Route::post('/saveEvaluation', [AudioController::class, 'store'])->name('evaluation.store');

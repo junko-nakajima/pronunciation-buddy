@@ -15,6 +15,7 @@ class DeckSeeder extends Seeder
     public function run(): void
     {
         DB::table('decks')->insert([
+            'id' =>1,
             'user_id' =>1,
             'category_id' =>1,
             'title' => '第1課（文字編）',
@@ -24,7 +25,8 @@ class DeckSeeder extends Seeder
         ]);
         //
         DB::table('decks')->insert([
-            'user_id' =>2,
+            'id' =>2,
+            'user_id' =>1,
             'category_id' =>1,
             'title' => '第2課（文字編）',
             'created_at' => new DateTime(),

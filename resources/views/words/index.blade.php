@@ -1,3 +1,8 @@
+<x-app-layout>
+    <x-slot name="header">
+        <meta charset="utf-8">
+        <title>발음 버디</title>
+    </x-slot>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -7,11 +12,13 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Lesson Name</h1>
+        <h1>발음 버디</h1>
         <div class='words'>
             @foreach ($words as $word)
                 <div class='word'>
-                    <h2 class='title'>{{ $word->title }}</h2>
+                    <h2 class='title'>
+                    <a href="/words/{{ $word->id }}">{{ $word->title }}</a>
+                    </h2>
                     <p class='meaning'>{{ $word->meaning }}</p>
                 </div>
                 <form action="/words/{{ $word->id }}" id="form_{{ $word->id }}" method="word">
@@ -33,3 +40,4 @@
         </script>
     </body>
 </html>
+</x-app-layout>

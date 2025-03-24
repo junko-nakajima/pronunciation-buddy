@@ -1,3 +1,8 @@
+<x-app-layout>
+    <x-slot name="header">
+        <meta charset="utf-8">
+        <title>발음 버디</title>
+    </x-slot>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -12,7 +17,9 @@
         <div class='decks'>
             @foreach ($decks as $deck)
                 <div class='deck'>
-                    <h2 class='title'>{{ $deck->title }}</h2>
+                    <h2 class='title'>
+                        <a href="/decks/{{ $deck->id }}">{{ $deck->title }}</a>
+                    </h2>
                 </div>
                 <form action="/decks/{{ $deck->id }}" id="form_{{ $deck->id }}" method="post">
                     @csrf
@@ -33,3 +40,4 @@
         </script>
     </body>
 </html>
+</x-app-layout>
