@@ -8,13 +8,28 @@
     </head>
     <body>
         <h1>Lesson Name</h1>
+        <a href='/decks/create'>create</a>
         <div class='decks'>
             @foreach ($decks as $deck)
                 <div class='deck'>
                     <h2 class='title'>{{ $deck->title }}</h2>
-                    <p class='body'>{{ $deck->body }}</p>
                 </div>
+                <form action="/decks/{{ $deck->id }}" id="form_{{ $deck->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deletePost({{ $deck->id }})">delete</button>
+                </form>
             @endforeach
+            {{ Auth::user()->name }}
         </div>
+        <script>
+            function deletePost(id) {
+                'use strict'
+
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
     </body>
 </html>

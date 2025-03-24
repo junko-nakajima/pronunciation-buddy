@@ -8,6 +8,7 @@ use App\Http\Controllers\WordController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AttemptController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\AudioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,16 +35,24 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [DeckController::class, 'index']);
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/deck', [DeckController::class, 'index'])->name('index');
+    Route::get('/decks/create', [DeckController::class, 'create']);
+    Route::get('/decks/{deck}', [DeckController::class, 'show']);
+    Route::post('/decks', [DeckController::class, 'store']);
+    Route::delete('/decks/{deck}', [DeckController::class,'delete']);
 
-Route::get('/', [StudyhistoryController::class, 'lists']);
+    Route::get('/studyhistory', [StudyhistoryController::class, 'index']);
 
-Route::get('/', [WordController::class, 'lists']);
+    Route::get('/word', [WordController::class, 'index']);
 
-Route::get('/', [CategoryController::class, 'index']);
+    Route::get('/category', [CategoryController::class, 'index']);
 
-Route::get('/', [AttemptController::class, 'index']);
+    Route::get('/attempt', [AttemptController::class, 'index']);
 
-Route::get('/', [FeedbackController::class, 'index']);
+    Route::get('/feedback', [FeedbackController::class, 'index']);
 
+    Route::get('/audio', [AudioController::class, 'index']); 
+    Route::post('/saveEvaluation', [AudioController::class, 'store'])->name('evaluation.store');
+});
 require __DIR__.'/auth.php';

@@ -24,6 +24,7 @@
                     </form>
                 </div>
             @endforeach
+            {{ Auth::user()->name }}
         </div>
         <div class='paginate'>
             {{ $decks->links() }}
