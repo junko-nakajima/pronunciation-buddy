@@ -15,6 +15,7 @@
                     <p class='comment'>{{ $feedback->comment }}</p>
                 </div>
             @endforeach
+            {{ Auth::user()->name }}
         </div>
     </body>
 </html>
