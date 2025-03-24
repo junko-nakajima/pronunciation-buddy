@@ -1,3 +1,8 @@
+<x-app-layout>
+    <x-slot name="header">
+        <meta charset="utf-8">
+        <title>발음 버디</title>
+    </x-slot>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -19,3 +24,4 @@
         </div>
     </body>
 </html>
+</x-app-layout>
