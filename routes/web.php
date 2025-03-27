@@ -47,7 +47,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/studyhistory', [StudyhistoryController::class, 'index'])->name('index');
 
     Route::get('/word', [WordController::class, 'index'])->name('index');
-    Route::get('/words/create', [WordController::class, 'create'])->name('create');
     Route::get('/words/{word}', [WordController::class ,'show'])->name('show');
     Route::post('/words', [WordController::class, 'store']);
     Route::put('/words/{word}', [WordController::class, 'update'])->name('update');
@@ -55,7 +54,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/words/{word}/edit', [WordController::class,'edit'])->name('edit');
 
     Route::get('/category', [CategoryController::class, 'index'])->name('index');
-   
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('create');
+    Route::post('/categories', [CategoryController::class, 'store']);
+    Route::delete('/categories/{category}', [CategoryController::class,'delete'])->name('delete');
+    Route::get('/categories/{category}/edit', [CategoryController::class,'edit'])->name('edit');   
+
     Route::get('/attempt', [AttemptController::class, 'index'])->name('index');
 
     Route::get('/feedback', [FeedbackController::class, 'index'])->name('index');

@@ -14,12 +14,12 @@
         <div class="content">
             <div class="content__word">
                 <h3>意味</h3>
+                <p>{{ $word->meaning }}</p>
             </div>
         </div>        
+        <div class="edit"><a href="/words/{{ $word->id }}/edit">edit</a></div>
         <div class="footer">
             <a href="/">戻る</a>
-        </div>
-        <div class="edit"><a href="/words/{{ $word->id }}/edit">edit</a>
         </div>
     </body>
 </x-app-layout>

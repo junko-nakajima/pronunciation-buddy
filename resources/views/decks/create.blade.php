@@ -4,7 +4,7 @@
         <title>발음 버디</title>
     </x-slot>
     <body>
-        <h1>발음 버디</h1>
+        <h1>Create a Quiz!!</h1>
         <form action="/decks" method="POST">
             @csrf
             <div class="title">
@@ -13,7 +13,7 @@
                 <p class="title_error" style="color:red">{{ $errors->first('deck.title') }}</p>
             </div>
             <div class="category">
-            <h2>Category</h2>
+            <h2>Category：カテゴリーを選択してください</h2>
             <select name="deck[category_id]">
                 @foreach($categories as $category)
                   <option value="{{ $category->id }}">{{ $category->name }}</option>

@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class WordController extends Controller
 {
-    public function index(Word $word)
+    public function index()
     {
-        return view('words.index')->with(['words' => $word->get()]);
+        $words = Word::with('deck')->get();
+        return view('words.index')->with(['words' => $words]);
     }
     
     public function create()
@@ -21,6 +22,11 @@ class WordController extends Controller
     {
         $word->delete();
         return redirect('/');
+    }
+
+    public function edit(Word $word)
+    {
+    return view('words.edit')->with(['word' => $word]);
     }
 
     public function show(Word $word)

@@ -15,7 +15,11 @@ class DeckController extends Controller
 
     public function show(Deck $deck)
     {
-        return view('decks.show')->with(['deck' => $deck]);
+        $words = $deck->words;
+        return view('words.index', [
+            'deck' => $deck,
+            'words' => $words,
+        ]);
     }
     public function create(Category $category)
     {
@@ -36,8 +40,8 @@ class DeckController extends Controller
 
     public function update(DeckRequest $request, Deck $deck)
     {
-    $input_deck = $request['deck'];
-    $deck->fill($input_deck)->save();
+        $input_deck = $request['deck'];
+        $deck->fill($input_deck)->save();
 
     return redirect('/decks/' . $deck->id);
     }

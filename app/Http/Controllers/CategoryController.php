@@ -11,5 +11,11 @@ class CategoryController extends Controller
     {
         return view('categories.index')->with(['categories' => $category->get()]);
     }
+
+    public function create(Category $category)
+    {
+        return view('categories.create')->with(['categories' => $category->get()]);
+
+    }
     //
 }
