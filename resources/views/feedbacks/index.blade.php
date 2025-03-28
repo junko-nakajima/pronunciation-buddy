@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Lesson Name</h1>
+        <h1>Feedback</h1>
         <div class='feedbacks'>
             @foreach ($feedbacks as $feedbacks)
                 <div class='feedback'>

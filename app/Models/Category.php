@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+    ];
     
-    public function deck()
+    public function decks()
     {
-        return $this->belongsTo(Deck::class);
+        return $this->hasMany(Deck::class);
     }
 }

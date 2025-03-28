@@ -10,13 +10,11 @@ class Deck extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-    ];
+    protected $fillable = ['user_id', 'category_id','title'];
 
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function words()

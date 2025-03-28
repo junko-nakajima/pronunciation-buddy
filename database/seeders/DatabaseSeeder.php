@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CategorySeeder::class,
             DeckSeeder::class,
-            WordSeeder::class,            
+            WordSeeder::class,         
         ]);
         // \App\Models\User::factory(10)->create();
 
