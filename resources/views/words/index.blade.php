@@ -14,6 +14,11 @@
       </head>
       <body>
           <h1>{{ $deck->title }}</h1>
+          @auth
+            @if (Auth::user()->is_teacher)
+            <a href="/words/{{ $deck->id }}/create">create</a>
+            @endif
+          @endauth
           <div class='words'>
               @foreach ($words as $word)
                   <div class='word' id="word-{{ $word->id }}">
@@ -169,5 +174,6 @@
               }
           </script>
       </body>
+      <div class="back">[<a href="{{ url()->previous() }}">back</a>]</div>
   </html>
 </x-app-layout>

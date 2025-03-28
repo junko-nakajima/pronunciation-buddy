@@ -13,8 +13,8 @@ class Category extends Model
         'title',
     ];
     
-    public function deck()
+    public function decks()
     {
-        return $this->belongsTo(Deck::class);
+        return $this->hasMany(Deck::class);
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Word;
 use Illuminate\Http\Request;
+use App\Models\Deck;
+use Illuminate\Support\Facades\Auth;
 
 class WordController extends Controller
 {
@@ -13,9 +15,34 @@ class WordController extends Controller
         return view('words.index')->with(['words' => $words]);
     }
     
-    public function create()
+    public function create(Deck $deck)
     {
-        return view('words.create');
+        return view('words.create')->with(['deck' => $deck]);
+    }
+
+    public function store(Request $request, Word $word)
+    {
+        // 単語をスペースで分割
+        $input = $request['word'];
+        $deckId       = $input['deck_id'];
+        $wordsString  = $input['word'];     
+        $meaningsString = $input['meaning'];
+        $userId = Auth::id();
+        $wordsArray = explode(' ', $wordsString);
+        $meaningsArray = explode(' ', $meaningsString);
+        $count = count($wordsArray);
+        for($i = 0; $i < $count; $i++){
+            $data = [
+                'deck_id' => $deckId,
+                 'user_id' => $userId,
+                 'word' => $wordsArray[$i],
+                 'meaning' => $meaningsArray[$i],
+                ];
+            $word = new \App\Models\Word();
+            $word->fill($data)->save();
+        }
+             
+        return redirect('decks/' . $deckId)->with('success','単語カードが作成されました!');
     }
     
     public function delete(Word $word)

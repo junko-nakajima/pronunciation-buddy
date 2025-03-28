@@ -8,13 +8,17 @@
     </x-slot>
     <body>
         <h1 class="title">
-            {{ $category->title }}
+            {{ $category->name }}
         </h1>
-        <a href="/categories/{{ $category->category->id }}">{{ $category->name }}</a>
+            @foreach($category->decks as $deck)
+                    <div class='deck'>
+                        <h2 class='title'>
+                            <a href="/decks/{{ $deck->id }}">{{ $deck->title }}</a>
+                        </h2>
+                    </div>
+            @endforeach
          <div class="footer">
-            <a href="/">戻る</a>
-        </div>
-        <div class="edit"><a href="/categories/{{ $category->id }}/edit">edit</a>
+            <a href="{{ url()->previous() }}">戻る</a>
         </div>
     </body>
 </x-app-layout>

@@ -10,6 +10,8 @@ class Word extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['deck_id', 'word','meaning'];
+
     public function deck()
     {
         return $this->belongsTo(Deck::class);

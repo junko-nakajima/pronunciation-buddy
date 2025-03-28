@@ -19,7 +19,9 @@
             @endif
         @endauth
             <div class='decks'>
-                @foreach ($decks as $deck)
+                @foreach($groupedDecks as $categoryName => $decksGroup)
+                    <h3>{{ $categoryName }}</h3>
+                @foreach ($decksGroup as $deck)
                     <div class='deck'>
                         <h2 class='title'>
                             <a href="/decks/{{ $deck->id }}">{{ $deck->title }}</a>
@@ -36,6 +38,7 @@
                         @endif
                     @endauth
                 @endforeach
+                @endforeach
                 {{ Auth::user()->name }}
             </div>
         <script>
@@ -48,6 +51,6 @@
             }
         </script>
     </body>
-    <div class="back">[<a href="/">back</a>]</div>
+    <div class="back">[<a href="{{ url()->previous() }}">back</a>]</div>
 </html>
 </x-app-layout>

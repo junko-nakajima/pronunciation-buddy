@@ -17,7 +17,7 @@
             </div>
         </div>        
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="{{ url()->previous() }}">戻る</a>
         </div>
         <div class="edit"><a href="/decks/{{ $deck->id }}/edit">edit</a>
         </div>

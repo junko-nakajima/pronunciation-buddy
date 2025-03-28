@@ -19,7 +19,7 @@
         </div>        
         <div class="edit"><a href="/words/{{ $word->id }}/edit">edit</a></div>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="{{ url()->previous() }}">戻る</a>
         </div>
     </body>
 </x-app-layout>

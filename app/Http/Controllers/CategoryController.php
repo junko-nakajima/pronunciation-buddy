@@ -15,7 +15,11 @@ class CategoryController extends Controller
     public function create(Category $category)
     {
         return view('categories.create')->with(['categories' => $category->get()]);
-
     }
-    //
+
+    public function show(Category $category)
+    {
+       $category->load('decks');
+       return view('categories.show', compact('category'));
+    }
 }
