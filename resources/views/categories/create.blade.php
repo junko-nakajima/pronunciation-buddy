@@ -5,7 +5,7 @@
     </x-slot>
     <body>
         <h1>Make a Folder!!</h1>
-        <form action="/categories" method="POST">
+        <form action="{{ route(categories.store') }}" method="POST">
             @csrf
             <div class="title">
                 <h2>Title</h2>

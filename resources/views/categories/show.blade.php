@@ -20,5 +20,6 @@
          <div class="footer">
             <a href="{{ url()->previous() }}">戻る</a>
         </div>
+        <div class="edit"><a href="/categories/{{ $category->id }}/edit">edit</a></div>
     </body>
 </x-app-layout>

@@ -56,8 +56,8 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/category', [CategoryController::class, 'index'])->name('cotegoryIndex');
     Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('show');
-    Route::get('/categories/create', [CategoryController::class, 'create'])->name('create');
-    Route::post('/categories', [CategoryController::class, 'store']);
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
     Route::delete('/categories/{category}', [CategoryController::class,'delete'])->name('delete');
     Route::get('/categories/{category}/edit', [CategoryController::class,'edit'])->name('edit');   
 

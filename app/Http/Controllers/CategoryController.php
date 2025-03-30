@@ -17,6 +17,19 @@ class CategoryController extends Controller
         return view('categories.create')->with(['categories' => $category->get()]);
     }
 
+    public function store(Request $request)
+    {
+        $valadated = $request->validate([
+            'title' =>'required|string|max:255',
+        ]);
+
+        Category::create([
+            'title' => $validated['title']
+        ]);
+
+        return redirect()->route('categories.index')->with('success','保存されました!');
+    }
+
     public function show(Category $category)
     {
        $category->load('decks');
