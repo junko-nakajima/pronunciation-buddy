@@ -49,14 +49,14 @@ class DeckController extends Controller
         $input_deck = $request['deck'];
         $deck->fill($input_deck)->save();
 
-    return redirect('/words/' . $deck->id);
+    return redirect('/categories/' . $deck->category_id);
     }
 
     public function delete(Deck $deck)
     {
          $deck->delete();
 
-        return redirect('/decks/' . $deck->category_id)->with('success','アイテムが削除されました!');
+        return redirect('/categories/' . $deck->category_id)->with('success','アイテムが削除されました!');
     } 
     //
 }

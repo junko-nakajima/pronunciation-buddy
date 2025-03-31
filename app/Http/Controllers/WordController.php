@@ -47,8 +47,13 @@ class WordController extends Controller
     
     public function delete(Word $word)
     {
+        $deck = $word->deck;
+        $words = $deck->words;
         $word->delete();
-        return redirect('/');
+        return view('words.index', [
+            'deck' => $deck,
+            'words' => $words,
+        ]);
     }
 
     public function edit(Word $word)
@@ -64,9 +69,13 @@ class WordController extends Controller
     public function update(Request $request, Word $word)
     {
         $input_word = $request['word'];
+        $deck = $word->deck;
         $word->fill($input_word)->save();
-
-        return redirect('/words/' . $word->deck_id);
+        $words = $deck->words;
+        return view('words.index', [
+            'deck' => $deck,
+            'words' => $words,
+        ]);
     }
     //
 }

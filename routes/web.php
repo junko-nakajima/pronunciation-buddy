@@ -55,8 +55,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::delete('/words/{word}', [WordController::class,'delete'])->name('delete');
     Route::get('/words/{word}/edit', [WordController::class,'edit'])->name('edit');
 
-    Route::get('/category', [CategoryController::class, 'index'])->name('cotegoryIndex');
-    Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('show');
+    Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('category.show');
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
     Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
     Route::delete('/categories/{category}', [CategoryController::class,'delete'])->name('delete');

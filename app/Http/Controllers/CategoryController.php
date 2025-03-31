@@ -46,6 +46,13 @@ class CategoryController extends Controller
         $input_category = $request['category'];
         $category->fill($input_category)->save();
 
-        return redirect('/categories/');
+        return redirect()->route('category.index');
     }
+
+    public function delete(Category $category)
+    {
+        $category->delete();
+
+        return redirect()->route('category.index');
+    } 
 }
