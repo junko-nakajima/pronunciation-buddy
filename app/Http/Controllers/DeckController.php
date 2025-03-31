@@ -28,7 +28,7 @@ class DeckController extends Controller
     }
     public function create(Category $category)
     {
-        return view('decks.create')->with(['categories' => $category->get()]);
+        return view('decks.create')->with(['category' => $category]);
     }
 
     public function store(Request $request, Deck $deck)

@@ -10,8 +10,7 @@
             <input type="hidden" name="deck[category_id]" value="{{ $category->id }}">
             <div class="title">
                 <h2>Title</h2>
-                <input type="text" name="deck[title]" placeholder="タイトル" value="{{ old('deck.title')}}"/>
-                <p class="title_error" style="color:red">{{ $errors->first('deck.title') }}</p>
+                <input type="text" name="deck[title]" placeholder="タイトル" />
             </div>
             <input type="submit" value="保存"/>
         </form>
