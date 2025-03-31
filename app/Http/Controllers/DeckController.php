@@ -52,12 +52,11 @@ class DeckController extends Controller
     return redirect('/words/' . $deck->id);
     }
 
-    public function destroy(Deck $deck)
+    public function delete(Deck $deck)
     {
-        $item = Item::findOrFail($id);
-        $item->delete();
+         $deck->delete();
 
-        return redirect()->route('item.index')->witg('success','アイテムが削除されました!');
+        return redirect('/decks/' . $deck->category_id)->with('success','アイテムが削除されました!');
     } 
     //
 }
