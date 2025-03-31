@@ -24,11 +24,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $valadated = $request->validate([
-            'title' =>'required|string|max:255',
+            'name' =>'required|string|max:255',
         ]);
-
         Category::create([
-            'title' => $validated['title']
+            'name' => $validated['name']
         ]);
 
         return redirect()->route('categories.index')->with('success','保存されました!');
