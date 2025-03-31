@@ -7,14 +7,7 @@
         <h1>Create a Quiz!!</h1>
         <form action="/decks" method="POST">
             @csrf
-            <div class="category">
-            <h2>Category：カテゴリーを選択してください</h2>
-            <select name="deck[category_id]">
-                @foreach($categories as $category)
-                  <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
-            </select>
-            </div>
+            <input type="hidden" name="deck[category_id]" value="{{ $category->id }}">
             <div class="title">
                 <h2>Title</h2>
                 <input type="text" name="deck[title]" placeholder="タイトル" value="{{ old('deck.title')}}"/>

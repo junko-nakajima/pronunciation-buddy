@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/deck', [DeckController::class, 'index'])->name('index');
-    Route::get('/decks/create', [DeckController::class, 'create'])->name('create');
+    Route::get('/decks/{category}/create', [DeckController::class, 'create'])->name('create');
     Route::get('/decks/{deck}', [DeckController::class, 'show'])->name('show');
     Route::post('/decks', [DeckController::class, 'store']);
     Route::put('/decks/{deck}', [DeckController::class, 'update'])->name('update');
@@ -56,8 +56,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/words/{word}/edit', [WordController::class,'edit'])->name('edit');
 
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-    Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('category.show');
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('category.show');
     Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
     Route::delete('/categories/{category}', [CategoryController::class,'delete'])->name('delete');
     Route::get('/categories/{category}/edit', [CategoryController::class,'edit'])->name('edit');   
