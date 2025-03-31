@@ -15,7 +15,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('cotegory.index')" :active="request()->routeIs('index')">
+                    <x-nav-link :href="route('category.index')" :active="request()->routeIs('index')">
                         {{ __('教科書一覧') }}
                     </x-nav-link>    
                 </div>
