@@ -61,12 +61,12 @@ class WordController extends Controller
         return view('words.show')->with(['word' => $word]);
     }
 
-    public function update(WordRequest $request, Word $word)
+    public function update(Request $request, Word $word)
     {
         $input_word = $request['word'];
         $word->fill($input_word)->save();
 
-        return redirect('/words/' . $word->id);
+        return redirect('/words/' . $word->deck_id);
     }
     //
 }

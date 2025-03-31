@@ -35,4 +35,17 @@ class CategoryController extends Controller
        $category->load('decks');
        return view('categories.show', compact('category'));
     }
+
+    public function edit(Category $category)
+    {
+        return view('categories.edit')->with(['category' => $category]);
+    }
+
+    public function update(Request $request, Category $category)
+    {
+        $input_category = $request['category'];
+        $category->fill($input_category)->save();
+
+        return redirect('/categories/');
+    }
 }

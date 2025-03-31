@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::put('/decks/{deck}', [DeckController::class, 'update'])->name('update');
     Route::delete('/deck/{id}', [DeckController::class,'destroy'])->name('deck.destroy');
     Route::get('/decks/{deck}/edit', [DeckController::class,'edit'])->name('edit');
+    Route::put('/decks/{deck}', [DeckController::class, 'update']);
 
     Route::get('/studyhistory', [StudyhistoryController::class, 'index'])->name('index');
 
@@ -60,6 +61,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
     Route::delete('/categories/{category}', [CategoryController::class,'delete'])->name('delete');
     Route::get('/categories/{category}/edit', [CategoryController::class,'edit'])->name('edit');   
+    Route::put('/categories/{category}', [CategoryController::class, 'update']);
 
     Route::get('/attempt', [AttemptController::class, 'index'])->name('index');
 

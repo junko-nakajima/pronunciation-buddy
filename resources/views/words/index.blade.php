@@ -37,11 +37,16 @@
                   </button>
                   <!-- 評価結果表示エリア -->
                   <pre id="result-{{ $word->id }}"></pre>
+                  @auth
+                  @if (Auth::user()->is_teacher)
                   <form action="/words/{{ $word->id }}" id="form_{{ $word->id }}" method="word">
                       @csrf
                       @method('DELETE')
                       <button type="button" onclick="deleteWord({{ $word->id }})">delete</button>
                   </form>
+                  <div class="edit"><a href="/words/{{ $word->id }}/edit">edit</a></div>
+                  @endif
+                  @endauth
               @endforeach
               {{ Auth::user()->name }}
           </div>

@@ -11,9 +11,10 @@
         <form action="/words/{{ $word->id }}" method="POST">
             @csrf
             @method('PUT')
+            <input type="hidden" name="word[deck_id]" value="{{ $word->deck_id }}">
             <div class='content__title'>
-                <h2>タイトル</h2>
-                <input type='text' name='word[title]' value="{{ $word->title }}">
+                <h2>単語</h2>
+                <input type='text' name='word[word]' value="{{ $word->word }}">
             </div>
             <div class='content__meaning'>
                 <h2>意味</h2>

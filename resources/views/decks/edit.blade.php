@@ -11,6 +11,8 @@
         <form action="/decks/{{ $deck->id }}" method="POST">
             @csrf
             @method('PUT')
+            <input type="hidden" name="deck[user_id]" value="{{ $deck->user_id }}">
+            <input type="hidden" name="deck[category_id]" value="{{ $deck->category_id }}">
             <div class='content__title'>
                 <h2>タイトル</h2>
                 <input type='text' name='deck[title]' value="{{ $deck->title }}">

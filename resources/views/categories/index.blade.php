@@ -9,9 +9,9 @@
     <body>
         <h1>My Folder</h1>
         @auth
-        @if (Auth::user()->is_teacher)
-         <a href='/categories/create'>create</a>
-        @endif
+            @if (Auth::user()->is_teacher)
+            <a href='/categories/create'>create</a>
+            @endif
         @endauth
          <div class='decks'>
             @foreach ($categories as $category)
@@ -20,13 +20,14 @@
                     <a href="/categories/{{ $category->id }}">{{ $category->name }}</a>
                 </h2>
                 @auth
-                @if (Auth::user()->is_teacher)
-                    <form action="/categories/{{ $category->id }}" id="form_{{ $category->id }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="button" onclick="deletePost({{ $category->id }})">delete</button>
-                    </form>
-                @endif
+                    @if (Auth::user()->is_teacher)
+                        <form action="/categories/{{ $category->id }}" id="form_{{ $category->id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="button" onclick="deletePost({{ $category->id }})">delete</button>
+                        </form>
+                        <div class="edit"><a href="/categories/{{ $category->id }}/edit">edit</a></div>
+                    @endif
                 @endauth
                 </div>
             @endforeach

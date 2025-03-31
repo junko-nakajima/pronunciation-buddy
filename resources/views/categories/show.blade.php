@@ -8,6 +8,11 @@
     </x-slot>
     <body>
         <h1 class="title">
+        @auth
+            @if (Auth::user()->is_teacher)
+            <a href='/categories/create'>create</a>
+            @endif
+        @endauth
             {{ $category->name }}
         </h1>
             @foreach($category->decks as $deck)
@@ -16,10 +21,17 @@
                             <a href="/decks/{{ $deck->id }}">{{ $deck->title }}</a>
                         </h2>
                     </div>
+                    @if (Auth::user()->is_teacher)
+                        <form action="/decks/{{ $deck->id }}" id="form_{{ $deck->id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="button" onclick="deletePost({{ $deck->id }})">delete</button>
+                        </form>
+                        <div class="edit"><a href="/decks/{{ $deck->id }}/edit">edit</a></div>
+                    @endif
             @endforeach
          <div class="footer">
             <a href="{{ url()->previous() }}">戻る</a>
         </div>
-        <div class="edit"><a href="/categories/{{ $category->id }}/edit">edit</a></div>
     </body>
 </x-app-layout>

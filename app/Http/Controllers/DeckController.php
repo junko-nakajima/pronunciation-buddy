@@ -44,12 +44,12 @@ class DeckController extends Controller
     return view('decks.edit')->with(['deck' => $deck]);
     }
 
-    public function update(DeckRequest $request, Deck $deck)
+    public function update(Request $request, Deck $deck)
     {
         $input_deck = $request['deck'];
         $deck->fill($input_deck)->save();
 
-    return redirect('/decks/' . $deck->id);
+    return redirect('/words/' . $deck->id);
     }
 
     public function destroy(Deck $deck)

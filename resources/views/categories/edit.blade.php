@@ -12,8 +12,8 @@
             @csrf
             @method('PUT')
             <div class='content__title'>
-                <h2>フォルダー名</h2>
-                <input type='text' name='category[title]' value="{{ $category->title }}">
+                <h2>教科書名</h2>
+                <input type='text' name='category[name]' value="{{ $category->name }}">
             </div>
             <input type="submit" value="保存">
         </form>
