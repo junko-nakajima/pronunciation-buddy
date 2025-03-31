@@ -11,7 +11,7 @@ class CategoryController extends Controller
     {
         $categories = Category::orderBy('created_at', 'asc')->get();
 
-        return view('category.index', [
+        return view('categories.index', [
             'categories' => $categories,
         ]);
     }
@@ -26,7 +26,7 @@ class CategoryController extends Controller
         $input = $request['category'];
         $category->fill($input)->save();
 
-        return redirect()->route('categories.index')->with('success','保存されました!');
+        return redirect()->route('category.index')->with('success','保存されました!');
     }
 
     public function show(Category $category)
