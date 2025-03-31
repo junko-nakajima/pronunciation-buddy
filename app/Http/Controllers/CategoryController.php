@@ -9,7 +9,11 @@ class CategoryController extends Controller
 {
     public function index(Category $category)
     {
-        return view('categories.index')->with(['categories' => $category->get()]);
+        $categories = Category::orderBy('created_at', 'asc')->get();
+
+        return view('categories.index', [
+            'categories' => $categories,
+        ]);
     }
 
     public function create(Category $category)

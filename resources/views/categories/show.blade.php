@@ -10,7 +10,7 @@
         <h1 class="title">
         @auth
             @if (Auth::user()->is_teacher)
-            <a href='/decks/{{$category->id}}/create'>create</a>
+            <a href='/decks/{{$category->id}}/create'>create</a><br>
             @endif
         @endauth
             {{ $category->name }}

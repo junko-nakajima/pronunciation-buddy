@@ -9,8 +9,7 @@
             @csrf
             <div class="title">
                 <h2>Title</h2>
-                <input type="text" name="category[title]" placeholder="フォルダー名" value="{{ old('category.title')}}"/>
-                <p class="title_error" style="color:red">{{ $errors->first('category.title') }}</p>
+                <input type="text" name="category[name]" placeholder="フォルダー名" />
             </div>
             <input type="submit" value="保存"/>
         </form>

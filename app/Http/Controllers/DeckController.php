@@ -20,7 +20,7 @@ class DeckController extends Controller
 
     public function show(Deck $deck)
     {
-        $words = $deck->words;
+        $words = $deck->words()->orderBy('created_at', 'asc')->get();
         return view('words.index', [
             'deck' => $deck,
             'words' => $words,
