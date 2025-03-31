@@ -56,7 +56,7 @@ class DeckController extends Controller
     {
          $deck->delete();
 
-        return redirect('/categories/' . $deck->category_id)->with('success','アイテムが削除されました!');
+         return redirect('/categories/' . $deck->category_id);
     } 
     //
 }

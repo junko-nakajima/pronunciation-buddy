@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/decks/{deck}', [DeckController::class, 'show'])->name('show');
     Route::post('/decks', [DeckController::class, 'store']);
     Route::put('/decks/{deck}', [DeckController::class, 'update'])->name('update');
-    Route::delete('/decks/{id}', [DeckController::class,'delete'])->name('deck.delete');
+    Route::delete('/decks/{deck}', [DeckController::class,'delete'])->name('deck.delete');
     Route::get('/decks/{deck}/edit', [DeckController::class,'edit'])->name('edit');
     Route::put('/decks/{deck}', [DeckController::class, 'update']);
 
