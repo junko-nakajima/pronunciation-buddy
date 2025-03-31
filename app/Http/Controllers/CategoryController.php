@@ -21,14 +21,10 @@ class CategoryController extends Controller
         return view('categories.create')->with(['categories' => $category->get()]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Category $category)
     {
-        $valadated = $request->validate([
-            'name' =>'required|string|max:255',
-        ]);
-        Category::create([
-            'name' => $validated['name']
-        ]);
+        $input = $request['category'];
+        $category->fill($input)->save();
 
         return redirect()->route('categories.index')->with('success','保存されました!');
     }
