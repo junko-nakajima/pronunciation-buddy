@@ -48,8 +48,8 @@ class WordController extends Controller
     public function delete(Word $word)
     {
         $deck = $word->deck;
-        $words = $deck->words;
         $word->delete();
+        $words = $deck->words;
         return view('words.index', [
             'deck' => $deck,
             'words' => $words,

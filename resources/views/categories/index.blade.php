@@ -34,7 +34,6 @@
             {{ Auth::user()->name }}
         </div>
         <script>
-                    </form>
             function deletePost(id)
             {
                 'use strict'
